@@ -117,6 +117,7 @@
             this.button_Users.TabIndex = 3;
             this.button_Users.Text = "Users";
             this.button_Users.UseVisualStyleBackColor = false;
+            this.button_Users.Click += new System.EventHandler(this.button_Users_Click);
             // 
             // button_Categories
             // 
@@ -157,7 +158,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Store Management System";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // HomePage
             // 

@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(543, 66);
             this.panel1.TabIndex = 0;
@@ -213,6 +213,7 @@
             this.Button_Update.TabIndex = 1;
             this.Button_Update.Text = "Update";
             this.Button_Update.UseVisualStyleBackColor = false;
+            this.Button_Update.Click += new System.EventHandler(this.Button_Update_Click);
             // 
             // Button_Cancel
             // 
@@ -235,7 +236,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUserForm";
@@ -253,17 +254,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_Username;
-        private System.Windows.Forms.TextBox text_Username;
-        private System.Windows.Forms.TextBox text_RealName;
         private System.Windows.Forms.Label label_RealName;
-        private System.Windows.Forms.TextBox text_Password;
         private System.Windows.Forms.Label label_Password;
-        private System.Windows.Forms.TextBox text_Email;
         private System.Windows.Forms.Label label_Email;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button Button_Create;
-        private System.Windows.Forms.Button Button_Update;
-        private System.Windows.Forms.Button Button_Cancel;
+        public System.Windows.Forms.Button Button_Create;
+        public System.Windows.Forms.Button Button_Update;
+        public System.Windows.Forms.Button Button_Cancel;
+        public System.Windows.Forms.TextBox text_Username;
+        public System.Windows.Forms.TextBox text_RealName;
+        public System.Windows.Forms.TextBox text_Password;
+        public System.Windows.Forms.TextBox text_Email;
     }
 }

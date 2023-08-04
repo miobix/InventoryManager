@@ -15,10 +15,12 @@ namespace InventoryManager
     {
 
         string strSQL = "Server=127.0.0.1;Port=3306;Database=dbims;Uid=root;Pwd=admin12345;CharSet=utf8";
+        string userId;
 
-        public AddUserForm()
+        public AddUserForm(string _userId)
         {
             InitializeComponent();
+            userId = _userId;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -110,7 +112,62 @@ namespace InventoryManager
 
         private void Button_Cancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void Button_Update_Click(object sender, EventArgs e)
+        {
+            MySqlConnection MConn = null;
+            MySqlCommand Comm = null;
+
+            try
+            {
+                MConn = new MySqlConnection(strSQL);
+                MConn.Open();
+
+                if (MConn.State == ConnectionState.Open)
+                {
+                    if (MessageBox.Show("Confirm Updating user?", "Update Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        
+                        string queryString = "UPDATE tbuser SET username=@username, fullname=@fullname, password=@password,email=@email WHERE userId LIKE '"+ userId + "'";
+               
+                        Comm = new MySqlCommand(queryString, MConn);
+                        Comm.Parameters.AddWithValue("username", text_Username.Text);
+                        Comm.Parameters.AddWithValue("fullname", text_RealName.Text);
+                        Comm.Parameters.AddWithValue("password", text_Password.Text);
+                        Comm.Parameters.AddWithValue("email", text_Email.Text);
+                        Comm.ExecuteNonQuery();
+                        MConn.Close();
+                        MessageBox.Show("Updated!");
+                     
+                    }
+
+
+                }
+
+                if (Comm != null) Comm.Dispose();
+
+                if (MConn != null)
+                {
+                    if (MConn.State == ConnectionState.Open)
+                        MConn.Close();
+                    MConn.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Comm != null) Comm.Dispose();
+
+                if (MConn != null)
+                {
+                    if (MConn.State == ConnectionState.Open)
+                        MConn.Close();
+                    MConn.Dispose();
+                }
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
