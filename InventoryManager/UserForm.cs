@@ -30,7 +30,6 @@ namespace InventoryManager
             int index = 0;
             dgvUser.Rows.Clear();
             
-
             MConn = new MySqlConnection(strSQL);
             MConn.Open();
             string queryString = "SELECT * FROM tbuser";
@@ -57,6 +56,7 @@ namespace InventoryManager
                 AddUserForm userModule = new AddUserForm(userID);
                 userModule.text_Username.Text = dgvUser.Rows[e.RowIndex].Cells[1].Value.ToString();
                 userModule.text_RealName.Text = dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString();
+                userModule.text_Password.Text = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
                 userModule.text_Password.Text = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
                 userModule.text_Email.Text = dgvUser.Rows[e.RowIndex].Cells[4].Value.ToString();
                 

@@ -49,6 +49,12 @@ namespace InventoryManager
                 MConn = new MySqlConnection(strSQL);
                 MConn.Open();
 
+                if(text_Password.Text != text_RepeatPassword.Text)
+                {
+                    MessageBox.Show("Password does not match", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (MConn.State == ConnectionState.Open)
                 {
                     if (MessageBox.Show("Confirm Add user?", "Saving Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -106,6 +112,7 @@ namespace InventoryManager
             text_Username.Clear();
             text_RealName.Clear();
             text_Password.Clear();
+            text_RepeatPassword.Clear();
             text_Email.Clear();
 
         }
@@ -119,6 +126,12 @@ namespace InventoryManager
         {
             MySqlConnection MConn = null;
             MySqlCommand Comm = null;
+
+            if (text_Password != text_RepeatPassword)
+            {
+                MessageBox.Show("Password does not match", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {
@@ -168,6 +181,16 @@ namespace InventoryManager
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void text_RepeatPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

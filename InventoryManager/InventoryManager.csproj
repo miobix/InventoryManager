@@ -62,11 +62,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCategoryForm.Designer.cs">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddUserForm.Designer.cs">
       <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
@@ -88,8 +100,14 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCategoryForm.resx">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>

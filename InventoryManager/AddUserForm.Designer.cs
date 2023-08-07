@@ -39,6 +39,8 @@
             this.text_Email = new System.Windows.Forms.TextBox();
             this.label_Email = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.text_RepeatPassword = new System.Windows.Forms.TextBox();
+            this.label_RepeatPassword = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Button_Create = new System.Windows.Forms.Button();
             this.Button_Update = new System.Windows.Forms.Button();
@@ -84,18 +86,18 @@
             // 
             this.text_Username.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_Username.Location = new System.Drawing.Point(149, 3);
+            this.text_Username.Location = new System.Drawing.Point(198, 3);
             this.text_Username.Name = "text_Username";
-            this.text_Username.Size = new System.Drawing.Size(337, 26);
+            this.text_Username.Size = new System.Drawing.Size(288, 26);
             this.text_Username.TabIndex = 2;
             // 
             // text_RealName
             // 
             this.text_RealName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_RealName.Location = new System.Drawing.Point(149, 74);
+            this.text_RealName.Location = new System.Drawing.Point(198, 59);
             this.text_RealName.Name = "text_RealName";
-            this.text_RealName.Size = new System.Drawing.Size(337, 26);
+            this.text_RealName.Size = new System.Drawing.Size(288, 26);
             this.text_RealName.TabIndex = 4;
             this.text_RealName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -104,9 +106,9 @@
             this.label_RealName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_RealName.AutoSize = true;
-            this.label_RealName.Location = new System.Drawing.Point(3, 71);
+            this.label_RealName.Location = new System.Drawing.Point(3, 56);
             this.label_RealName.Name = "label_RealName";
-            this.label_RealName.Size = new System.Drawing.Size(140, 18);
+            this.label_RealName.Size = new System.Drawing.Size(189, 18);
             this.label_RealName.TabIndex = 3;
             this.label_RealName.Text = "Name:";
             // 
@@ -114,9 +116,9 @@
             // 
             this.text_Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_Password.Location = new System.Drawing.Point(149, 145);
+            this.text_Password.Location = new System.Drawing.Point(198, 115);
             this.text_Password.Name = "text_Password";
-            this.text_Password.Size = new System.Drawing.Size(337, 26);
+            this.text_Password.Size = new System.Drawing.Size(288, 26);
             this.text_Password.TabIndex = 6;
             this.text_Password.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -125,9 +127,9 @@
             this.label_Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Password.AutoSize = true;
-            this.label_Password.Location = new System.Drawing.Point(3, 142);
+            this.label_Password.Location = new System.Drawing.Point(3, 112);
             this.label_Password.Name = "label_Password";
-            this.label_Password.Size = new System.Drawing.Size(140, 18);
+            this.label_Password.Size = new System.Drawing.Size(189, 18);
             this.label_Password.TabIndex = 5;
             this.label_Password.Text = "Password:";
             this.label_Password.Click += new System.EventHandler(this.label4_Click);
@@ -136,44 +138,69 @@
             // 
             this.text_Email.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_Email.Location = new System.Drawing.Point(149, 216);
+            this.text_Email.Location = new System.Drawing.Point(198, 227);
             this.text_Email.Name = "text_Email";
-            this.text_Email.Size = new System.Drawing.Size(337, 26);
-            this.text_Email.TabIndex = 8;
+            this.text_Email.Size = new System.Drawing.Size(288, 26);
+            this.text_Email.TabIndex = 11;
             // 
             // label_Email
             // 
             this.label_Email.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Email.AutoSize = true;
-            this.label_Email.Location = new System.Drawing.Point(3, 213);
+            this.label_Email.Location = new System.Drawing.Point(3, 224);
             this.label_Email.Name = "label_Email";
-            this.label_Email.Size = new System.Drawing.Size(140, 18);
-            this.label_Email.TabIndex = 7;
+            this.label_Email.Size = new System.Drawing.Size(189, 18);
+            this.label_Email.TabIndex = 11;
             this.label_Email.Text = "email:";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.text_RepeatPassword, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label_RepeatPassword, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_Username, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.text_Email, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_RealName, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.text_Password, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label_Email, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.text_RealName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label_Password, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.text_Username, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.text_Email, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label_Email, 0, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(26, 99);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(489, 284);
             this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // text_RepeatPassword
+            // 
+            this.text_RepeatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_RepeatPassword.Location = new System.Drawing.Point(198, 171);
+            this.text_RepeatPassword.Name = "text_RepeatPassword";
+            this.text_RepeatPassword.Size = new System.Drawing.Size(288, 26);
+            this.text_RepeatPassword.TabIndex = 8;
+            this.text_RepeatPassword.TextChanged += new System.EventHandler(this.text_RepeatPassword_TextChanged);
+            // 
+            // label_RepeatPassword
+            // 
+            this.label_RepeatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_RepeatPassword.AutoSize = true;
+            this.label_RepeatPassword.Location = new System.Drawing.Point(3, 168);
+            this.label_RepeatPassword.Name = "label_RepeatPassword";
+            this.label_RepeatPassword.Size = new System.Drawing.Size(189, 18);
+            this.label_RepeatPassword.TabIndex = 8;
+            this.label_RepeatPassword.Text = "Repeat Password:";
+            this.label_RepeatPassword.Click += new System.EventHandler(this.label2_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -266,5 +293,7 @@
         public System.Windows.Forms.TextBox text_RealName;
         public System.Windows.Forms.TextBox text_Password;
         public System.Windows.Forms.TextBox text_Email;
+        public System.Windows.Forms.TextBox text_RepeatPassword;
+        private System.Windows.Forms.Label label_RepeatPassword;
     }
 }

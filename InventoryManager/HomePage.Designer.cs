@@ -131,6 +131,7 @@
             this.button_Categories.TabIndex = 4;
             this.button_Categories.Text = "Categories";
             this.button_Categories.UseVisualStyleBackColor = false;
+            this.button_Categories.Click += new System.EventHandler(this.button_Categories_Click);
             // 
             // button_Purchases
             // 

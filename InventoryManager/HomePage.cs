@@ -22,8 +22,12 @@ namespace InventoryManager
 
         private void OpenChildForm(Form childForm)
         {
-            if(activeForm != null)
-                activeForm.Close();
+            if (activeForm != null)
+            {
+                activeForm.Close(); // Close the form
+                activeForm.Dispose(); // Dispose of the form and its resources
+            }
+        
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -37,6 +41,11 @@ namespace InventoryManager
         private void button_Users_Click(object sender, EventArgs e)
         {
             OpenChildForm(new UserForm());
+        }
+
+        private void button_Categories_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CategoryForm());
         }
     }
 }
