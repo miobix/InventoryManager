@@ -28,9 +28,26 @@ CREATE TABLE IF NOT EXISTS `tbcategory` (
 
 -- Dumping data for table dbims.tbcategory: ~3 rows (approximately)
 INSERT INTO `tbcategory` (`catId`, `catName`) VALUES
-	('12c90f5b-3604-4af0-85ac-94ba33d50268', 'swa'),
 	('29b33377-0cb2-481d-9020-6d05f8bb32af', 'Bread'),
-	('4c143c7e-c69f-4444-98b9-f0dc170febcd', 'Milk');
+	('4c143c7e-c69f-4444-98b9-f0dc170febcd', 'Milk'),
+	('81d3dd64-31ef-400e-8cdf-65d8a1cde2de', 'Eggs');
+
+-- Dumping structure for table dbims.tbproduct
+CREATE TABLE IF NOT EXISTS `tbproduct` (
+  `prodId` varchar(50) NOT NULL,
+  `prodName` varchar(50) NOT NULL,
+  `prodQuantity` int(11) NOT NULL,
+  `prodPrice` int(11) NOT NULL,
+  `prodDescription` varchar(50) DEFAULT NULL,
+  `prodCat` varchar(50) NOT NULL,
+  PRIMARY KEY (`prodId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table dbims.tbproduct: ~3 rows (approximately)
+INSERT INTO `tbproduct` (`prodId`, `prodName`, `prodQuantity`, `prodPrice`, `prodDescription`, `prodCat`) VALUES
+	('6456a80a-92c0-4a77-890a-b4465d22fd6f', 'French bread', 40, 2000, 'ou lala wi', 'Bread'),
+	('979c4aab-818b-485b-a9f5-3c1a2c1e3fe7', 'Low Fat Milk', 10, 3000, '1% fat content', 'Milk'),
+	('a0e96ce5-ea4c-43bd-886b-4ebe68c3bd85', 'white bread', 20, 20000, 'white bread Pan', 'Bread');
 
 -- Dumping structure for table dbims.tbuser
 CREATE TABLE IF NOT EXISTS `tbuser` (

@@ -48,6 +48,7 @@ namespace InventoryManager
         private void dgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvCategory.Columns[e.ColumnIndex].Name;
+ 
             if (colName == "Edit")
             {
                 string catId = dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -68,7 +69,7 @@ namespace InventoryManager
                 {
                     MConn = new MySqlConnection(strSQL);
                     MConn.Open();
-                    string queryString = "DELETE FROM tbuser WHERE userId LIKE '" + dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
+                    string queryString = "DELETE FROM tbCategory WHERE catId LIKE '" + dgvCategory.Rows[e.RowIndex].Cells[1].Value.ToString() + "'";
                     Comm = new MySqlCommand(queryString, MConn);
                     Comm.ExecuteNonQuery();
                     MConn.Close();

@@ -90,7 +90,7 @@ namespace InventoryManager
 
         private void Button_Cancel_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
 
@@ -109,7 +109,7 @@ namespace InventoryManager
                     if (MessageBox.Show("Confirm Updating category?", "Update Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        string queryString = "UPDATE tbCategory SET catName=@catName, WHERE catId LIKE '" + catId + "'";
+                        string queryString = "UPDATE tbCategory SET catName=@catName WHERE catId LIKE '" + catId + "'";
 
                         Comm = new MySqlCommand(queryString, MConn);
                         Comm.Parameters.AddWithValue("catName", text_CatName.Text);

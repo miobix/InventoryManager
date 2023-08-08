@@ -104,6 +104,7 @@
             this.button_Products.TabIndex = 2;
             this.button_Products.Text = "Products";
             this.button_Products.UseVisualStyleBackColor = false;
+            this.button_Products.Click += new System.EventHandler(this.button_Products_Click);
             // 
             // button_Users
             // 

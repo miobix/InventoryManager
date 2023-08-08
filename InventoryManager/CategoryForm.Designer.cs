@@ -29,14 +29,23 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCategory = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Button_AddCategory = new System.Windows.Forms.Button();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CatId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Button_AddProduct = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +61,7 @@
             this.CatName,
             this.Edit,
             this.Delete});
+            this.dgvCategory.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCategory.Location = new System.Drawing.Point(0, 0);
             this.dgvCategory.Name = "dgvCategory";
@@ -59,32 +69,8 @@
             this.dgvCategory.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCategory.RowTemplate.Height = 26;
             this.dgvCategory.Size = new System.Drawing.Size(794, 537);
-            this.dgvCategory.TabIndex = 3;
-            this.dgvCategory.UseWaitCursor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.Button_AddCategory);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 537);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(794, 74);
-            this.panel1.TabIndex = 2;
-            this.panel1.UseWaitCursor = true;
-            // 
-            // Button_AddCategory
-            // 
-            this.Button_AddCategory.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Button_AddCategory.ForeColor = System.Drawing.Color.White;
-            this.Button_AddCategory.Location = new System.Drawing.Point(23, 16);
-            this.Button_AddCategory.Name = "Button_AddCategory";
-            this.Button_AddCategory.Size = new System.Drawing.Size(144, 37);
-            this.Button_AddCategory.TabIndex = 0;
-            this.Button_AddCategory.Text = "Create Category";
-            this.Button_AddCategory.UseVisualStyleBackColor = false;
-            this.Button_AddCategory.UseWaitCursor = true;
-            this.Button_AddCategory.Click += new System.EventHandler(this.Button_AddCategory_Click);
+            this.dgvCategory.TabIndex = 1;
+            this.dgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellContentClick);
             // 
             // Number
             // 
@@ -96,7 +82,7 @@
             // CatId
             // 
             this.CatId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CatId.HeaderText = "Cat. ID";
+            this.CatId.HeaderText = "Product ID";
             this.CatId.MinimumWidth = 30;
             this.CatId.Name = "CatId";
             this.CatId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -105,9 +91,33 @@
             // 
             this.CatName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CatName.HeaderText = "Name";
-            this.CatName.MinimumWidth = 250;
+            this.CatName.MinimumWidth = 150;
             this.CatName.Name = "CatName";
-            this.CatName.Width = 250;
+            this.CatName.Width = 150;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 50;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 96;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 50;
+            this.Price.Name = "Price";
+            this.Price.Width = 68;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 50;
+            this.Description.Name = "Description";
+            this.Description.Width = 115;
             // 
             // Edit
             // 
@@ -128,6 +138,71 @@
             this.Delete.Text = "Delete";
             this.Delete.Width = 60;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.Button_AddProduct);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 537);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(794, 74);
+            this.panel1.TabIndex = 2;
+            // 
+            // Button_AddProduct
+            // 
+            this.Button_AddProduct.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Button_AddProduct.ForeColor = System.Drawing.Color.White;
+            this.Button_AddProduct.Location = new System.Drawing.Point(23, 16);
+            this.Button_AddProduct.Name = "Button_AddProduct";
+            this.Button_AddProduct.Size = new System.Drawing.Size(144, 37);
+            this.Button_AddProduct.TabIndex = 0;
+            this.Button_AddProduct.Text = "Create Category";
+            this.Button_AddProduct.UseVisualStyleBackColor = false;
+            this.Button_AddProduct.Click += new System.EventHandler(this.Button_AddCategory_Click);
+
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "N";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Cat. ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 30;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 250;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 250;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewButtonColumn1.FillWeight = 50F;
+            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.dataGridViewButtonColumn1.HeaderText = "Edit";
+            this.dataGridViewButtonColumn1.MinimumWidth = 50;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Text = "Edit";
+            this.dataGridViewButtonColumn1.Width = 50;
+            // 
+            // dataGridViewButtonColumn2
+            // 
+            this.dataGridViewButtonColumn2.FillWeight = 50F;
+            this.dataGridViewButtonColumn2.HeaderText = "Delete";
+            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
+            this.dataGridViewButtonColumn2.Text = "Delete";
+            this.dataGridViewButtonColumn2.Width = 60;
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -139,7 +214,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
-            this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -150,11 +224,19 @@
 
         private System.Windows.Forms.DataGridView dgvCategory;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Button_AddCategory;
+        private System.Windows.Forms.Button Button_AddProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn CatId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CatName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
     }
 }

@@ -99,7 +99,7 @@
             this.text_RealName.Name = "text_RealName";
             this.text_RealName.Size = new System.Drawing.Size(288, 26);
             this.text_RealName.TabIndex = 4;
-            this.text_RealName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+
             // 
             // label_RealName
             // 
@@ -120,7 +120,7 @@
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(288, 26);
             this.text_Password.TabIndex = 6;
-            this.text_Password.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+
             // 
             // label_Password
             // 
@@ -132,7 +132,7 @@
             this.label_Password.Size = new System.Drawing.Size(189, 18);
             this.label_Password.TabIndex = 5;
             this.label_Password.Text = "Password:";
-            this.label_Password.Click += new System.EventHandler(this.label4_Click);
+
             // 
             // text_Email
             // 
@@ -188,7 +188,7 @@
             this.text_RepeatPassword.Name = "text_RepeatPassword";
             this.text_RepeatPassword.Size = new System.Drawing.Size(288, 26);
             this.text_RepeatPassword.TabIndex = 8;
-            this.text_RepeatPassword.TextChanged += new System.EventHandler(this.text_RepeatPassword_TextChanged);
+
             // 
             // label_RepeatPassword
             // 
@@ -200,7 +200,7 @@
             this.label_RepeatPassword.Size = new System.Drawing.Size(189, 18);
             this.label_RepeatPassword.TabIndex = 8;
             this.label_RepeatPassword.Text = "Repeat Password:";
-            this.label_RepeatPassword.Click += new System.EventHandler(this.label2_Click);
+
             // 
             // tableLayoutPanel2
             // 
@@ -217,7 +217,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 60);
             this.tableLayoutPanel2.TabIndex = 10;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // Button_Create
             // 

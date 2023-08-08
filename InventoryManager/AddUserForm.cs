@@ -23,20 +23,6 @@ namespace InventoryManager
             userId = _userId;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void Button_Create_Click(object sender, EventArgs e)
         {
@@ -102,11 +88,6 @@ namespace InventoryManager
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void Clear()
         {
             text_Username.Clear();
@@ -119,7 +100,7 @@ namespace InventoryManager
 
         private void Button_Cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void Button_Update_Click(object sender, EventArgs e)
@@ -183,14 +164,6 @@ namespace InventoryManager
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void text_RepeatPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
