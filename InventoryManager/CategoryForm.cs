@@ -35,12 +35,12 @@ namespace InventoryManager
             string queryString = "SELECT * FROM tbCategory";
             Comm = new MySqlCommand(queryString, MConn);
             dr = Comm.ExecuteReader();
-            /*
+            
             while (dr.Read())
             {
                 index++;
-                //dgvCategory.Rows.Add(index, dr[0].ToString(), dr[1].ToString());
-            }*/
+                dgvCategory.Rows.Add(index, dr[0].ToString(), dr[1].ToString());
+            }
             dr.Close();
             MConn.Close();
         }
