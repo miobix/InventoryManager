@@ -146,6 +146,7 @@
             this.button_Purchases.TabIndex = 5;
             this.button_Purchases.Text = "Purchases";
             this.button_Purchases.UseVisualStyleBackColor = false;
+            this.button_Purchases.Click += new System.EventHandler(this.button_Purchases_Click);
             // 
             // label3
             // 

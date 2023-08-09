@@ -34,11 +34,22 @@ CRUD operations with WinForms
 - Changed the handling of "Cancel" button on PopUps from this.Close() to this.Dispose()
 - Added a sample database to use when cloning the code
 
+## 230809
+- Added a searchbox on Users - works with substrings using CONCAT on query string
+- Created a PurchaseForm and AddPurchaseForm 
+- A new Purchase must include the ID of the product and the user who made the purchase
+- AddPurchaseForm displays the information from users and products
+- Search function for both tables added
+- ClickCell event autofills the AddPurchaseForm
+- Cannot purchase more than available on inventory
+- only INSERT operation implemented for now
+
 #### Some pendings / ideas
 
 - ~Check for duplicate password~
 - Check for valid email format
-- Display text correctly inside Edit and Delete buttons (currently not showing text)
+- Display text correctly inside Edit and Delete buttons (currently not showing text) // replace for image?
 - Check for empty strings when adding to the DB
-- Add a SearchBar for any list
+- ~Add a SearchBar for any list~
 - (if possible) On UPDATE of a Category item, update the value of the corresponding Products
+

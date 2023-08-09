@@ -52,5 +52,10 @@ namespace InventoryManager
         {
             OpenChildForm(new ProductForm());
         }
+
+        private void button_Purchases_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new PurchaseForm());
+        }
     }
 }

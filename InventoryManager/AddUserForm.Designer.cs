@@ -99,7 +99,6 @@
             this.text_RealName.Name = "text_RealName";
             this.text_RealName.Size = new System.Drawing.Size(288, 26);
             this.text_RealName.TabIndex = 4;
-
             // 
             // label_RealName
             // 
@@ -120,7 +119,6 @@
             this.text_Password.Name = "text_Password";
             this.text_Password.Size = new System.Drawing.Size(288, 26);
             this.text_Password.TabIndex = 6;
-
             // 
             // label_Password
             // 
@@ -132,7 +130,6 @@
             this.label_Password.Size = new System.Drawing.Size(189, 18);
             this.label_Password.TabIndex = 5;
             this.label_Password.Text = "Password:";
-
             // 
             // text_Email
             // 
@@ -188,7 +185,6 @@
             this.text_RepeatPassword.Name = "text_RepeatPassword";
             this.text_RepeatPassword.Size = new System.Drawing.Size(288, 26);
             this.text_RepeatPassword.TabIndex = 8;
-
             // 
             // label_RepeatPassword
             // 
@@ -200,7 +196,6 @@
             this.label_RepeatPassword.Size = new System.Drawing.Size(189, 18);
             this.label_RepeatPassword.TabIndex = 8;
             this.label_RepeatPassword.Text = "Repeat Password:";
-
             // 
             // tableLayoutPanel2
             // 
@@ -266,6 +261,7 @@
             this.Name = "AddUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUserForm";
+            this.Load += new System.EventHandler(this.AddUserForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

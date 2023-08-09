@@ -32,7 +32,7 @@ namespace InventoryManager
 
             MConn = new MySqlConnection(strSQL);
             MConn.Open();
-            string queryString = "SELECT * FROM tbProduct";
+            string queryString = "SELECT * FROM tbProduct WHERE CONCAT(prodId, prodName,prodPrice,prodDescription,prodCat) LIKE '%" + text_SearchProduct.Text + "%'";
             Comm = new MySqlCommand(queryString, MConn);
             dr = Comm.ExecuteReader();
             while (dr.Read())
@@ -87,6 +87,11 @@ namespace InventoryManager
             AddProduct.Button_Create.Enabled = true;
             AddProduct.Button_Update.Enabled = false;
             AddProduct.ShowDialog();
+            LoadProduct();
+        }
+
+        private void text_SearchProduct_TextChanged(object sender, EventArgs e)
+        {
             LoadProduct();
         }
     }

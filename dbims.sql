@@ -49,6 +49,22 @@ INSERT INTO `tbproduct` (`prodId`, `prodName`, `prodQuantity`, `prodPrice`, `pro
 	('979c4aab-818b-485b-a9f5-3c1a2c1e3fe7', 'Low Fat Milk', 10, 3000, '1% fat content', 'Milk'),
 	('a0e96ce5-ea4c-43bd-886b-4ebe68c3bd85', 'white bread', 20, 20000, 'white bread Pan', 'Bread');
 
+-- Dumping structure for table dbims.tbpurchase
+CREATE TABLE IF NOT EXISTS `tbpurchase` (
+  `purchId` varchar(50) NOT NULL,
+  `purchDate` date NOT NULL,
+  `prodId` varchar(50) NOT NULL,
+  `userId` varchar(50) NOT NULL,
+  `prodQuantity` int(11) NOT NULL,
+  `prodPrice` int(11) NOT NULL,
+  `purchTotal` int(11) NOT NULL,
+  PRIMARY KEY (`purchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table dbims.tbpurchase: ~1 rows (approximately)
+INSERT INTO `tbpurchase` (`purchId`, `purchDate`, `prodId`, `userId`, `prodQuantity`, `prodPrice`, `purchTotal`) VALUES
+	('fd7032f3-f374-4c34-a743-2d377c6ed6a8', '2023-08-09', '979c4aab-818b-485b-a9f5-3c1a2c1e3fe7', 'e7e5bbfe-26ad-4f64-b468-18c90ad195c2', 2, 3000, 6000);
+
 -- Dumping structure for table dbims.tbuser
 CREATE TABLE IF NOT EXISTS `tbuser` (
   `username` varchar(50) NOT NULL,
