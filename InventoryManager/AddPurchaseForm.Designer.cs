@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Button_Cancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,10 +39,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_Username = new System.Windows.Forms.Label();
             this.label_RealName = new System.Windows.Forms.Label();
             this.text_UserName = new System.Windows.Forms.TextBox();
             this.text_UserId = new System.Windows.Forms.TextBox();
+            this.label_Username = new System.Windows.Forms.Label();
             this.text_SearchUser = new System.Windows.Forms.TextBox();
             this.label_SearchUser = new System.Windows.Forms.Label();
             this.label_Customer = new System.Windows.Forms.Label();
@@ -50,6 +50,20 @@
             this.Button_Create = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_Date = new System.Windows.Forms.Label();
+            this.date_PurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.label_ProdId = new System.Windows.Forms.Label();
+            this.label_ProdName = new System.Windows.Forms.Label();
+            this.text_ProdName = new System.Windows.Forms.TextBox();
+            this.text_ProdId = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_Total = new System.Windows.Forms.Label();
+            this.text_Total = new System.Windows.Forms.TextBox();
+            this.label_Price = new System.Windows.Forms.Label();
+            this.label_Quantity = new System.Windows.Forms.Label();
+            this.text_Price = new System.Windows.Forms.TextBox();
+            this.numeric_Quantity = new System.Windows.Forms.NumericUpDown();
             this.text_SearchProduct = new System.Windows.Forms.TextBox();
             this.label_SearchProduct = new System.Windows.Forms.Label();
             this.label_Product = new System.Windows.Forms.Label();
@@ -61,30 +75,16 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_Price = new System.Windows.Forms.Label();
-            this.text_Price = new System.Windows.Forms.TextBox();
-            this.text_Total = new System.Windows.Forms.TextBox();
-            this.label_Quantity = new System.Windows.Forms.Label();
-            this.label_Total = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_ProdId = new System.Windows.Forms.Label();
-            this.label_ProdName = new System.Windows.Forms.Label();
-            this.text_ProdName = new System.Windows.Forms.TextBox();
-            this.text_ProdId = new System.Windows.Forms.TextBox();
-            this.date_PurchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.label_Date = new System.Windows.Forms.Label();
-            this.numeric_Quantity = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_Quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_Cancel
@@ -135,8 +135,8 @@
             this.dgvUser.Location = new System.Drawing.Point(0, 0);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUser.RowTemplate.Height = 26;
             this.dgvUser.Size = new System.Drawing.Size(286, 247);
             this.dgvUser.TabIndex = 14;
@@ -196,16 +196,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(255, 120);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
-            // label_Username
-            // 
-            this.label_Username.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_Username.AutoSize = true;
-            this.label_Username.Location = new System.Drawing.Point(3, 21);
-            this.label_Username.Name = "label_Username";
-            this.label_Username.Size = new System.Drawing.Size(80, 18);
-            this.label_Username.TabIndex = 1;
-            this.label_Username.Text = "Cust. ID: ";
-            // 
             // label_RealName
             // 
             this.label_RealName.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -233,6 +223,16 @@
             this.text_UserId.Name = "text_UserId";
             this.text_UserId.Size = new System.Drawing.Size(147, 26);
             this.text_UserId.TabIndex = 2;
+            // 
+            // label_Username
+            // 
+            this.label_Username.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_Username.AutoSize = true;
+            this.label_Username.Location = new System.Drawing.Point(3, 21);
+            this.label_Username.Name = "label_Username";
+            this.label_Username.Size = new System.Drawing.Size(80, 18);
+            this.label_Username.TabIndex = 1;
+            this.label_Username.Text = "Cust. ID: ";
             // 
             // text_SearchUser
             // 
@@ -316,6 +316,164 @@
             this.panel3.Size = new System.Drawing.Size(608, 543);
             this.panel3.TabIndex = 16;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.Controls.Add(this.label_Date, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.date_PurchaseDate, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label_ProdId, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label_ProdName, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.text_ProdName, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.text_ProdId, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(17, 336);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(307, 120);
+            this.tableLayoutPanel4.TabIndex = 22;
+            // 
+            // label_Date
+            // 
+            this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Date.AutoSize = true;
+            this.label_Date.Location = new System.Drawing.Point(3, 91);
+            this.label_Date.Name = "label_Date";
+            this.label_Date.Size = new System.Drawing.Size(116, 18);
+            this.label_Date.TabIndex = 24;
+            this.label_Date.Text = "Date:";
+            // 
+            // date_PurchaseDate
+            // 
+            this.date_PurchaseDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.date_PurchaseDate.CustomFormat = "yyyy/MM/dd";
+            this.date_PurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_PurchaseDate.Location = new System.Drawing.Point(125, 87);
+            this.date_PurchaseDate.MaxDate = new System.DateTime(2024, 8, 9, 0, 0, 0, 0);
+            this.date_PurchaseDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.date_PurchaseDate.Name = "date_PurchaseDate";
+            this.date_PurchaseDate.Size = new System.Drawing.Size(179, 26);
+            this.date_PurchaseDate.TabIndex = 23;
+            this.date_PurchaseDate.Value = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
+            // 
+            // label_ProdId
+            // 
+            this.label_ProdId.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_ProdId.AutoSize = true;
+            this.label_ProdId.Location = new System.Drawing.Point(3, 11);
+            this.label_ProdId.Name = "label_ProdId";
+            this.label_ProdId.Size = new System.Drawing.Size(80, 18);
+            this.label_ProdId.TabIndex = 1;
+            this.label_ProdId.Text = "Prod. ID: ";
+            // 
+            // label_ProdName
+            // 
+            this.label_ProdName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_ProdName.AutoSize = true;
+            this.label_ProdName.Location = new System.Drawing.Point(3, 51);
+            this.label_ProdName.Name = "label_ProdName";
+            this.label_ProdName.Size = new System.Drawing.Size(116, 18);
+            this.label_ProdName.TabIndex = 3;
+            this.label_ProdName.Text = "Prod Name:";
+            // 
+            // text_ProdName
+            // 
+            this.text_ProdName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_ProdName.Enabled = false;
+            this.text_ProdName.Location = new System.Drawing.Point(125, 47);
+            this.text_ProdName.Name = "text_ProdName";
+            this.text_ProdName.Size = new System.Drawing.Size(179, 26);
+            this.text_ProdName.TabIndex = 4;
+            // 
+            // text_ProdId
+            // 
+            this.text_ProdId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_ProdId.Enabled = false;
+            this.text_ProdId.Location = new System.Drawing.Point(125, 7);
+            this.text_ProdId.Name = "text_ProdId";
+            this.text_ProdId.Size = new System.Drawing.Size(179, 26);
+            this.text_ProdId.TabIndex = 2;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel3.Controls.Add(this.label_Total, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.text_Total, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label_Price, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label_Quantity, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.text_Price, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.numeric_Quantity, 1, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(341, 336);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(255, 120);
+            this.tableLayoutPanel3.TabIndex = 21;
+            // 
+            // label_Total
+            // 
+            this.label_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Total.AutoSize = true;
+            this.label_Total.Location = new System.Drawing.Point(3, 91);
+            this.label_Total.Name = "label_Total";
+            this.label_Total.Size = new System.Drawing.Size(96, 18);
+            this.label_Total.TabIndex = 6;
+            this.label_Total.Text = "Total:";
+            // 
+            // text_Total
+            // 
+            this.text_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_Total.Enabled = false;
+            this.text_Total.Location = new System.Drawing.Point(105, 87);
+            this.text_Total.Name = "text_Total";
+            this.text_Total.Size = new System.Drawing.Size(147, 26);
+            this.text_Total.TabIndex = 5;
+            // 
+            // label_Price
+            // 
+            this.label_Price.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_Price.AutoSize = true;
+            this.label_Price.Location = new System.Drawing.Point(3, 11);
+            this.label_Price.Name = "label_Price";
+            this.label_Price.Size = new System.Drawing.Size(55, 18);
+            this.label_Price.TabIndex = 1;
+            this.label_Price.Text = "Price: ";
+            // 
+            // label_Quantity
+            // 
+            this.label_Quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Quantity.AutoSize = true;
+            this.label_Quantity.Location = new System.Drawing.Point(3, 51);
+            this.label_Quantity.Name = "label_Quantity";
+            this.label_Quantity.Size = new System.Drawing.Size(96, 18);
+            this.label_Quantity.TabIndex = 3;
+            this.label_Quantity.Text = "Quantity:";
+            // 
+            // text_Price
+            // 
+            this.text_Price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_Price.Enabled = false;
+            this.text_Price.Location = new System.Drawing.Point(105, 7);
+            this.text_Price.Name = "text_Price";
+            this.text_Price.Size = new System.Drawing.Size(147, 26);
+            this.text_Price.TabIndex = 2;
+            // 
+            // numeric_Quantity
+            // 
+            this.numeric_Quantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.numeric_Quantity.Location = new System.Drawing.Point(105, 47);
+            this.numeric_Quantity.Name = "numeric_Quantity";
+            this.numeric_Quantity.Size = new System.Drawing.Size(147, 26);
+            this.numeric_Quantity.TabIndex = 7;
+            this.numeric_Quantity.ValueChanged += new System.EventHandler(this.numeric_Quantity_ValueChanged);
+            // 
             // text_SearchProduct
             // 
             this.text_SearchProduct.Location = new System.Drawing.Point(350, 256);
@@ -361,8 +519,8 @@
             this.dgvProduct.Location = new System.Drawing.Point(0, 0);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduct.RowTemplate.Height = 26;
             this.dgvProduct.Size = new System.Drawing.Size(608, 247);
             this.dgvProduct.TabIndex = 4;
@@ -418,164 +576,6 @@
             this.Category.Name = "Category";
             this.Category.Width = 102;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.Controls.Add(this.label_Total, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.text_Total, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label_Price, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label_Quantity, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.text_Price, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.numeric_Quantity, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(341, 336);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(255, 120);
-            this.tableLayoutPanel3.TabIndex = 21;
-            // 
-            // label_Price
-            // 
-            this.label_Price.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_Price.AutoSize = true;
-            this.label_Price.Location = new System.Drawing.Point(3, 10);
-            this.label_Price.Name = "label_Price";
-            this.label_Price.Size = new System.Drawing.Size(55, 18);
-            this.label_Price.TabIndex = 1;
-            this.label_Price.Text = "Price: ";
-            // 
-            // text_Price
-            // 
-            this.text_Price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_Price.Enabled = false;
-            this.text_Price.Location = new System.Drawing.Point(105, 6);
-            this.text_Price.Name = "text_Price";
-            this.text_Price.Size = new System.Drawing.Size(147, 26);
-            this.text_Price.TabIndex = 2;
-            // 
-            // text_Total
-            // 
-            this.text_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_Total.Enabled = false;
-            this.text_Total.Location = new System.Drawing.Point(105, 86);
-            this.text_Total.Name = "text_Total";
-            this.text_Total.Size = new System.Drawing.Size(147, 26);
-            this.text_Total.TabIndex = 5;
-            // 
-            // label_Quantity
-            // 
-            this.label_Quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Quantity.AutoSize = true;
-            this.label_Quantity.Location = new System.Drawing.Point(3, 49);
-            this.label_Quantity.Name = "label_Quantity";
-            this.label_Quantity.Size = new System.Drawing.Size(96, 18);
-            this.label_Quantity.TabIndex = 3;
-            this.label_Quantity.Text = "Quantity:";
-            // 
-            // label_Total
-            // 
-            this.label_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Total.AutoSize = true;
-            this.label_Total.Location = new System.Drawing.Point(3, 90);
-            this.label_Total.Name = "label_Total";
-            this.label_Total.Size = new System.Drawing.Size(96, 18);
-            this.label_Total.TabIndex = 6;
-            this.label_Total.Text = "Total:";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel4.Controls.Add(this.label_Date, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.date_PurchaseDate, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label_ProdId, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label_ProdName, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.text_ProdName, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.text_ProdId, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(17, 336);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(307, 120);
-            this.tableLayoutPanel4.TabIndex = 22;
-            // 
-            // label_ProdId
-            // 
-            this.label_ProdId.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_ProdId.AutoSize = true;
-            this.label_ProdId.Location = new System.Drawing.Point(3, 10);
-            this.label_ProdId.Name = "label_ProdId";
-            this.label_ProdId.Size = new System.Drawing.Size(80, 18);
-            this.label_ProdId.TabIndex = 1;
-            this.label_ProdId.Text = "Prod. ID: ";
-            // 
-            // label_ProdName
-            // 
-            this.label_ProdName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_ProdName.AutoSize = true;
-            this.label_ProdName.Location = new System.Drawing.Point(3, 49);
-            this.label_ProdName.Name = "label_ProdName";
-            this.label_ProdName.Size = new System.Drawing.Size(116, 18);
-            this.label_ProdName.TabIndex = 3;
-            this.label_ProdName.Text = "Prod Name:";
-            // 
-            // text_ProdName
-            // 
-            this.text_ProdName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_ProdName.Enabled = false;
-            this.text_ProdName.Location = new System.Drawing.Point(125, 45);
-            this.text_ProdName.Name = "text_ProdName";
-            this.text_ProdName.Size = new System.Drawing.Size(179, 26);
-            this.text_ProdName.TabIndex = 4;
-            // 
-            // text_ProdId
-            // 
-            this.text_ProdId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_ProdId.Enabled = false;
-            this.text_ProdId.Location = new System.Drawing.Point(125, 6);
-            this.text_ProdId.Name = "text_ProdId";
-            this.text_ProdId.Size = new System.Drawing.Size(179, 26);
-            this.text_ProdId.TabIndex = 2;
-            // 
-            // date_PurchaseDate
-            // 
-            this.date_PurchaseDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.date_PurchaseDate.CustomFormat = "yyyy/MM/dd";
-            this.date_PurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_PurchaseDate.Location = new System.Drawing.Point(125, 86);
-            this.date_PurchaseDate.MaxDate = new System.DateTime(2024, 8, 9, 0, 0, 0, 0);
-            this.date_PurchaseDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.date_PurchaseDate.Name = "date_PurchaseDate";
-            this.date_PurchaseDate.Size = new System.Drawing.Size(179, 26);
-            this.date_PurchaseDate.TabIndex = 23;
-            this.date_PurchaseDate.Value = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
-            // 
-            // label_Date
-            // 
-            this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(3, 90);
-            this.label_Date.Name = "label_Date";
-            this.label_Date.Size = new System.Drawing.Size(116, 18);
-            this.label_Date.TabIndex = 24;
-            this.label_Date.Text = "Date:";
-            // 
-            // numeric_Quantity
-            // 
-            this.numeric_Quantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.numeric_Quantity.Location = new System.Drawing.Point(105, 48);
-            this.numeric_Quantity.Name = "numeric_Quantity";
-            this.numeric_Quantity.Size = new System.Drawing.Size(147, 26);
-            this.numeric_Quantity.TabIndex = 7;
-            this.numeric_Quantity.ValueChanged += new System.EventHandler(this.numeric_Quantity_ValueChanged);
-            // 
             // AddPurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -600,12 +600,12 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_Quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,7 +654,7 @@
         private System.Windows.Forms.Label label_Quantity;
         public System.Windows.Forms.TextBox text_Price;
         private System.Windows.Forms.Label label_Date;
-        private System.Windows.Forms.DateTimePicker date_PurchaseDate;
-        private System.Windows.Forms.NumericUpDown numeric_Quantity;
+        public System.Windows.Forms.DateTimePicker date_PurchaseDate;
+        public System.Windows.Forms.NumericUpDown numeric_Quantity;
     }
 }

@@ -61,7 +61,7 @@
             this.label3.Size = new System.Drawing.Size(253, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Store Management System";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+
             // 
             // label1
             // 
@@ -72,7 +72,7 @@
             this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // textBox_Username
             // 

@@ -44,12 +44,21 @@ CRUD operations with WinForms
 - Cannot purchase more than available on inventory
 - only INSERT operation implemented for now
 
+## 230810
+- Implemented LoadPurchases from database on initialization
+- After completing a purchase, the remaining inventory amount is adjusted
+- After deleting a purchase, restored item is added back to inventory
+- Added a limit to purchase "negative" items
+- Learned how to display date with a Custom format, on DataGridView and on a DatePicker element
+- Implemented the login sequence
+- To Fix: EDIT a purchase could not be implemented, it is commented out for now
+
 #### Some pendings / ideas
 
 - ~Check for duplicate password~
 - Check for valid email format
 - Display text correctly inside Edit and Delete buttons (currently not showing text) // replace for image?
-- Check for empty strings when adding to the DB
+- ~Check for empty strings when adding to the DB~
 - ~Add a SearchBar for any list~
 - (if possible) On UPDATE of a Category item, update the value of the corresponding Products
-
+- Might need to separate Admin users from Customer users... maybe for next project?

@@ -18,14 +18,17 @@ namespace InventoryManager
         MySqlCommand Comm = null;
         MySqlDataReader dr;
 
+        string purchId;
+
         //store amount of item on inventory
         int inventoryQuantity = 0;
 
-        public AddPurchaseForm()
+        public AddPurchaseForm(string _purchId)
         {
             InitializeComponent();
             LoadUser();
             LoadProduct();
+            purchId = _purchId;
         }
 
         private void Button_Cancel_Click(object sender, EventArgs e)
@@ -83,7 +86,8 @@ namespace InventoryManager
 
         private void numeric_Quantity_ValueChanged(object sender, EventArgs e)
         {
-            int desiredQuantity = Convert.ToInt16(numeric_Quantity.Value);
+            getQty();
+            int desiredQuantity = Convert.ToInt32(numeric_Quantity.Value);
             if (desiredQuantity > inventoryQuantity)
             {
                 MessageBox.Show("Not enough stock for this purchase", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,8 +95,11 @@ namespace InventoryManager
                 return;
             }
 
-            int total = Convert.ToInt16(text_Price.Text) * desiredQuantity;
-            text_Total.Text = total.ToString();
+            if(desiredQuantity > 0)
+            {
+                int total = Convert.ToInt32(text_Price.Text) * desiredQuantity;
+                text_Total.Text = total.ToString();
+            }
         }
 
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +113,7 @@ namespace InventoryManager
             text_ProdId.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
             text_ProdName.Text = dgvProduct.Rows[e.RowIndex].Cells[2].Value.ToString();
             text_Price.Text = dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString();
-            inventoryQuantity = Convert.ToInt16(dgvProduct.Rows[e.RowIndex].Cells[3].Value.ToString());
+
 
         }
 
@@ -134,7 +141,7 @@ namespace InventoryManager
 
                     if (MessageBox.Show("Confirm Add purchase?", "Saving Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
+                        //insert the new purhcase order
                         string queryString = "INSERT INTO dbims.tbPurchase (purchId, purchDate, prodId, userId, prodQuantity, prodPrice, purchTotal) VALUES (@purchId, @purchDate, @prodId, @userId, @prodQuantity, @prodPrice, @purchTotal)";
                         string newUuid = Guid.NewGuid().ToString();
                         Comm = new MySqlCommand(queryString, MConn);
@@ -143,13 +150,23 @@ namespace InventoryManager
                         Comm.Parameters.AddWithValue("prodId", text_ProdId.Text);
                         Comm.Parameters.AddWithValue("userId", text_UserId.Text);
                         Comm.Parameters.AddWithValue("prodQuantity", numeric_Quantity.Value);
-                        Comm.Parameters.AddWithValue("prodPrice", Convert.ToInt16(text_Price.Text));
-                        Comm.Parameters.AddWithValue("purchTotal", Convert.ToInt16(text_Total.Text));
+                        Comm.Parameters.AddWithValue("prodPrice", Convert.ToInt32(text_Price.Text));
+                        Comm.Parameters.AddWithValue("purchTotal", Convert.ToInt32(text_Total.Text));
                         Comm.ExecuteNonQuery();
 
-                        MConn.Close();
+                        //MConn.Close();
                         MessageBox.Show("Saved!");
+                        
+
+                        //update the remaining quantity after purchase
+                        string queryUpdate = "UPDATE tbProduct SET prodQuantity= (prodQuantity - @prodQuantity) WHERE prodId LIKE '" + text_ProdId.Text + "'";
+                        Comm = new MySqlCommand(queryUpdate, MConn);
+                        Comm.Parameters.AddWithValue("prodQuantity", Convert.ToInt32(numeric_Quantity.Value));
+                        Comm.ExecuteNonQuery();
+                        MConn.Close();
+
                         Clear();
+                        LoadProduct();
                     }
 
 
@@ -190,6 +207,21 @@ namespace InventoryManager
             text_Total.Clear();
             numeric_Quantity.Value = 0;
             date_PurchaseDate.Value = DateTime.Now;
+        }
+
+        public void getQty()
+        {
+            MConn = new MySqlConnection(strSQL);
+            MConn.Open();
+            string queryString = "SELECT prodQuantity FROM tbProduct WHERE prodId LIKE '" + text_ProdId.Text + "'";
+            Comm = new MySqlCommand(queryString, MConn);
+            dr = Comm.ExecuteReader();
+            while (dr.Read())
+            {
+                inventoryQuantity = Convert.ToInt32(dr[0].ToString());
+            }
+            dr.Close();
+            MConn.Close();
         }
 
     }

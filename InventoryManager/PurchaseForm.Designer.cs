@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Button_AddPurchase = new System.Windows.Forms.Button();
-            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.dgvPurchase = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,7 +55,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 74);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Button_AddPurchase
             // 
@@ -69,12 +68,12 @@
             this.Button_AddPurchase.UseVisualStyleBackColor = false;
             this.Button_AddPurchase.Click += new System.EventHandler(this.Button_AddPurchase_Click);
             // 
-            // dgvUser
+            // dgvPurchase
             // 
-            this.dgvUser.AllowUserToAddRows = false;
-            this.dgvUser.BackgroundColor = System.Drawing.Color.White;
-            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPurchase.AllowUserToAddRows = false;
+            this.dgvPurchase.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8,
             this.PurchaseDate,
@@ -85,14 +84,16 @@
             this.Total,
             this.Edit,
             this.Delete});
-            this.dgvUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUser.Location = new System.Drawing.Point(0, 0);
-            this.dgvUser.Name = "dgvUser";
+            this.dgvPurchase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPurchase.Location = new System.Drawing.Point(0, 0);
+            this.dgvPurchase.Name = "dgvPurchase";
+            this.dgvPurchase.RowHeadersVisible = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUser.RowTemplate.Height = 26;
-            this.dgvUser.Size = new System.Drawing.Size(794, 611);
-            this.dgvUser.TabIndex = 3;
+            this.dgvPurchase.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPurchase.RowTemplate.Height = 26;
+            this.dgvPurchase.Size = new System.Drawing.Size(794, 611);
+            this.dgvPurchase.TabIndex = 3;
+            this.dgvPurchase.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchase_CellContentClick);
             // 
             // Column7
             // 
@@ -173,14 +174,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvUser);
+            this.Controls.Add(this.dgvPurchase);
             this.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PurchaseForm";
             this.Text = "PurchaseForm";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,7 +190,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Button_AddPurchase;
-        private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.DataGridView dgvPurchase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseDate;

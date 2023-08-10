@@ -15,6 +15,7 @@ namespace InventoryManager
         public HomePage()
         {
             InitializeComponent();
+            OpenChildForm(new ProductForm());
         }
 
         //show form on another form
