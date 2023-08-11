@@ -16,19 +16,24 @@ namespace InventoryManager
         string strSQL = "Server=127.0.0.1;Port=3306;Database=dbims;Uid=root;Pwd=admin12345;CharSet=utf8";
         MySqlConnection MConn = null;
         MySqlCommand Comm = null;
+        MySqlCommand commUpdate = null;
         MySqlDataReader dr;
 
         string purchId;
+        string price;
+        public bool EnableCellClickEventHandling { get; set; }
 
         //store amount of item on inventory
         int inventoryQuantity = 0;
 
-        public AddPurchaseForm(string _purchId)
+        public AddPurchaseForm(string _purchId, string _price)
         {
             InitializeComponent();
             LoadUser();
             LoadProduct();
             purchId = _purchId;
+            price = _price;
+            dgvUser.CellClick += dgvUser_CellClick;
         }
 
         private void Button_Cancel_Click(object sender, EventArgs e)
@@ -86,30 +91,51 @@ namespace InventoryManager
 
         private void numeric_Quantity_ValueChanged(object sender, EventArgs e)
         {
-            getQty();
+            getInventoryQty();
+            int recordedQty = getRecordedQty();
             int desiredQuantity = Convert.ToInt32(numeric_Quantity.Value);
-            if (desiredQuantity > inventoryQuantity)
+            if (recordedQty > 0 && desiredQuantity - recordedQty > inventoryQuantity)
             {
                 MessageBox.Show("Not enough stock for this purchase", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 numeric_Quantity.Value = numeric_Quantity.Value - 1; 
                 return;
             }
 
+
             if(desiredQuantity > 0)
             {
-                int total = Convert.ToInt32(text_Price.Text) * desiredQuantity;
+                int total;
+                if (EnableCellClickEventHandling)
+                {
+                    total = Convert.ToInt32(text_Price.Text) * desiredQuantity;
+                }
+                else if (!EnableCellClickEventHandling)
+                {
+                    total = Convert.ToInt32(price) * desiredQuantity;
+                }
+                else total = 0;
                 text_Total.Text = total.ToString();
             }
         }
 
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (!EnableCellClickEventHandling)
+            {
+                // If event handling is disabled, return without further action
+                return;
+            }
             text_UserId.Text = dgvUser.Rows[e.RowIndex].Cells[1].Value.ToString();
             text_UserName.Text = dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (!EnableCellClickEventHandling)
+            {
+                // If event handling is disabled, return without further action
+                return;
+            }
             text_ProdId.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
             text_ProdName.Text = dgvProduct.Rows[e.RowIndex].Cells[2].Value.ToString();
             text_Price.Text = dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString();
@@ -209,7 +235,7 @@ namespace InventoryManager
             date_PurchaseDate.Value = DateTime.Now;
         }
 
-        public void getQty()
+        public void getInventoryQty()
         {
             MConn = new MySqlConnection(strSQL);
             MConn.Open();
@@ -224,5 +250,83 @@ namespace InventoryManager
             MConn.Close();
         }
 
+        public int getRecordedQty()
+        {
+            int returnValue = 0;
+            MConn = new MySqlConnection(strSQL);
+            MConn.Open();
+            string queryString = "SELECT prodQuantity FROM tbPurchase WHERE purchId LIKE '" + purchId + "'";
+            Comm = new MySqlCommand(queryString, MConn);
+            dr = Comm.ExecuteReader();
+            while (dr.Read())
+            {
+                returnValue = Convert.ToInt32(dr[0].ToString());
+            }
+            dr.Close();
+            MConn.Close();
+            return returnValue;
+        }
+
+        private void Button_Update_Click(object sender, EventArgs e)
+        {
+            
+                try
+                {
+                    MConn = new MySqlConnection(strSQL);
+                    MConn.Open();
+
+                    if (MConn.State == ConnectionState.Open)
+                    {
+                        if (MessageBox.Show("Confirm Updating purchase?", "Update Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+
+                            string queryString = "UPDATE tbPurchase SET prodQuantity=@prodQuantity, purchTotal=@purchTotal WHERE purchId LIKE '" + purchId + "'";
+
+                            Comm = new MySqlCommand(queryString, MConn);
+                            Comm.Parameters.AddWithValue("prodQuantity", numeric_Quantity.Value);
+                            Comm.Parameters.AddWithValue("purchTotal", Convert.ToInt32(text_Total.Text));
+                            Comm.ExecuteNonQuery();
+                          
+                            MessageBox.Show("Updated!");
+
+                        int recordedQty = getRecordedQty();
+                        string queryUpdate = "UPDATE tbProduct SET prodQuantity= (prodQuantity + @prodQuantity) WHERE prodId LIKE '" + text_ProdId.Text + "'";
+                        commUpdate = new MySqlCommand(queryUpdate, MConn);
+                        int updateValue = Convert.ToInt32(numeric_Quantity.Value) - recordedQty;
+                        commUpdate.Parameters.AddWithValue("prodQuantity", updateValue);
+                        commUpdate.ExecuteNonQuery();
+                        MConn.Close();
+                        Clear();
+
+
+                   
+                    }
+
+
+                }
+
+                    if (Comm != null) Comm.Dispose();
+
+                    if (MConn != null)
+                    {
+                        if (MConn.State == ConnectionState.Open)
+                            MConn.Close();
+                        MConn.Dispose();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (Comm != null) Comm.Dispose();
+
+                    if (MConn != null)
+                    {
+                        if (MConn.State == ConnectionState.Open)
+                            MConn.Close();
+                        MConn.Dispose();
+                    }
+
+                    MessageBox.Show(ex.Message);
+                }
+        }
     }
 }

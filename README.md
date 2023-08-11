@@ -53,10 +53,19 @@ CRUD operations with WinForms
 - Implemented the login sequence
 - To Fix: EDIT a purchase could not be implemented, it is commented out for now
 
+## 230811
+- Solved datatype bug when performing EDIT of a Putchase entry
+- Login improved: refactored the login process into a different function, now keyDown event and button click event can login the user
+- bugfix on edit user.
+- Edit a purchase is restricted to only restore the quantity of a product
+- Edit a purchase checks if there is enough in inventory first
+- Practiced some text validation on textBox: RegEx for emails and for empty strings
+
+
 #### Some pendings / ideas
 
 - ~Check for duplicate password~
-- Check for valid email format
+- ~Check for valid email format~
 - Display text correctly inside Edit and Delete buttons (currently not showing text) // replace for image?
 - ~Check for empty strings when adding to the DB~
 - ~Add a SearchBar for any list~

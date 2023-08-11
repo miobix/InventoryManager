@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace InventoryManager
 {
@@ -35,9 +36,21 @@ namespace InventoryManager
                 MConn = new MySqlConnection(strSQL);
                 MConn.Open();
 
-                if(text_Password.Text != text_RepeatPassword.Text)
+                if (text_Password.Text != text_RepeatPassword.Text)
                 {
                     MessageBox.Show("Password does not match", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!IsValidEmail(text_Email.Text))
+                {
+                    MessageBox.Show("Invalid email address", "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(text_Password.Text) || string.IsNullOrWhiteSpace(text_Username.Text) || string.IsNullOrWhiteSpace(text_RealName.Text))
+                {
+                    MessageBox.Show("All fields must be entered", "Data Missing Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -45,7 +58,7 @@ namespace InventoryManager
                 {
                     if (MessageBox.Show("Confirm Add user?", "Saving Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                      
+
                         string queryString = "INSERT INTO dbims.tbuser (username, fullname, password,email,userId) VALUES (@username, @fullname, @password, @email, @userId)";
                         string newUuid = Guid.NewGuid().ToString();
                         Comm = new MySqlCommand(queryString, MConn);
@@ -61,7 +74,7 @@ namespace InventoryManager
                         Clear();
                     }
 
-                   
+
                 }
 
                 if (Comm != null) Comm.Dispose();
@@ -113,6 +126,18 @@ namespace InventoryManager
             if (text_Password.Text != text_RepeatPassword.Text)
             {
                 MessageBox.Show("Password does not match", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidEmail(text_Email.Text))
+            {
+                MessageBox.Show("Invalid email address", "Email Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(text_Password.Text) || string.IsNullOrWhiteSpace(text_Username.Text) || string.IsNullOrWhiteSpace(text_RealName.Text))
+            {
+                MessageBox.Show("All fields must be entered", "Data Missing Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -169,6 +194,14 @@ namespace InventoryManager
         private void AddUserForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            // Email regex pattern (a simplified version)
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+
+            return Regex.IsMatch(email, pattern);
         }
     }
 }
