@@ -44,8 +44,46 @@ namespace InventoryManager
 
         }
 
+        private void PerformLogin()
+        {
+            try
+            {
+                MConn = new MySqlConnection(strSQL);
+                MConn.Open();
+                string queryString = "SELECT * FROM tbUser WHERE username=@username AND password=@password";
+                Comm = new MySqlCommand(queryString, MConn);
+
+                Comm.Parameters.AddWithValue("@username", textBox_Username.Text);
+                Comm.Parameters.AddWithValue("@password", textBox_Pwd.Text);
+
+                dr = Comm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    MessageBox.Show("Welcome, " + dr["fullname"].ToString() + "!", "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HomePage homepage = new HomePage();
+                    this.Hide();
+                    homepage.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                MConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
         private void Login_Bttn_Click(object sender, EventArgs e)
         {
+            PerformLogin();
+            /*
             try
             {
                 MConn = new MySqlConnection(strSQL);
@@ -79,6 +117,7 @@ namespace InventoryManager
 
                 MessageBox.Show(ex.Message);
             }
+            */
         }
 
         private void Exit_Bttn_Click(object sender, EventArgs e)
@@ -86,6 +125,14 @@ namespace InventoryManager
             if (MessageBox.Show("Exit Application?", "Confirmation Required", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void textBox_Pwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                PerformLogin();
             }
         }
     }

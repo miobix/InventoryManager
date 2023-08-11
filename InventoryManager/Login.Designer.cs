@@ -61,7 +61,6 @@
             this.label3.Size = new System.Drawing.Size(253, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Store Management System";
-
             // 
             // label1
             // 
@@ -72,7 +71,6 @@
             this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
-
             // 
             // textBox_Username
             // 
@@ -88,6 +86,7 @@
             this.textBox_Pwd.Size = new System.Drawing.Size(200, 21);
             this.textBox_Pwd.TabIndex = 4;
             this.textBox_Pwd.UseSystemPasswordChar = true;
+            this.textBox_Pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Pwd_KeyPress);
             // 
             // label2
             // 
