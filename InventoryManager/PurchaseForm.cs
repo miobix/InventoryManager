@@ -61,7 +61,7 @@ namespace InventoryManager
             string colName = dgvPurchase.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                /*
+                
                 string purchId = dgvPurchase.Rows[e.RowIndex].Cells[1].Value.ToString();
                 //MessageBox.Show("purchid: " + purchId);
                 DataGridViewButtonCell editButtonCell = dgvPurchase.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
@@ -91,7 +91,7 @@ namespace InventoryManager
                     MessageBox.Show("Unable to process this request", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                */
+                
             }
             else if (colName == "Delete")
             {

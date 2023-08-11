@@ -57,9 +57,10 @@ namespace InventoryManager
                 userModule.text_Username.Text = dgvUser.Rows[e.RowIndex].Cells[1].Value.ToString();
                 userModule.text_RealName.Text = dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString();
                 userModule.text_Password.Text = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
-                userModule.text_Password.Text = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
+                userModule.text_RepeatPassword.Text = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
                 userModule.text_Email.Text = dgvUser.Rows[e.RowIndex].Cells[4].Value.ToString();
-                
+                Console.WriteLine(userModule.text_Password.Text);
+                Console.WriteLine(userModule.text_RepeatPassword.Text);
                 userModule.Button_Create.Enabled = false;
                 userModule.Button_Update.Enabled = true;
                 userModule.ShowDialog();

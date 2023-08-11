@@ -108,7 +108,9 @@ namespace InventoryManager
             MySqlConnection MConn = null;
             MySqlCommand Comm = null;
 
-            if (text_Password != text_RepeatPassword)
+
+
+            if (text_Password.Text != text_RepeatPassword.Text)
             {
                 MessageBox.Show("Password does not match", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
