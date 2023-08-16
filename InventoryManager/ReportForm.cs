@@ -66,7 +66,6 @@ namespace InventoryManager
             return productsData;
         }
          
-
         public void PopulateDataGridWeek()
         {
             DataTable salesData = GetWeeklySalesData();
