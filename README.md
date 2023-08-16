@@ -61,6 +61,13 @@ CRUD operations with WinForms
 - Edit a purchase checks if there is enough in inventory first
 - Practiced some text validation on textBox: RegEx for emails and for empty strings
 
+## 230816
+- Created new Form to display reports
+- Practiced new queries to the DD using filters for date and values
+- Added 2 charts to display summary of sales and product information
+- Practiced how to handle DataTable 
+- Practiced how to modify the appearance of the tables
+
 
 #### Some pendings / ideas
 
@@ -69,5 +76,6 @@ CRUD operations with WinForms
 - Display text correctly inside Edit and Delete buttons (currently not showing text) // replace for image?
 - ~Check for empty strings when adding to the DB~
 - ~Add a SearchBar for any list~
+- ~Add some reports to the user~
 - (if possible) On UPDATE of a Category item, update the value of the corresponding Products
 - Might need to separate Admin users from Customer users... maybe for next project?

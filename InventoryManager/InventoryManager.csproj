@@ -51,6 +51,7 @@
     <Reference Include="MySql.Data, Version=6.9.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +119,12 @@
     <Compile Include="PurchaseForm.Designer.cs">
       <DependentUpon>PurchaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="PurchaseForm.resx">
       <DependentUpon>PurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
